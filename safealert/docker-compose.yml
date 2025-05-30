@@ -1,0 +1,28 @@
+services:
+  db:
+    build:
+      context: ./db
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: safealertgs
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: safealert_app
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: safealertgs
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
