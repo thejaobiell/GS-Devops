@@ -5,7 +5,6 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Runtime stage
 FROM eclipse-temurin:17.0.15_6-jre-alpine
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
