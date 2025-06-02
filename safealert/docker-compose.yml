@@ -6,7 +6,8 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-safealertgs}
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: safealertgs
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
@@ -19,7 +20,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-safealertgs}
+      SPRING_DATASOURCE_PASSWORD: safealertgs
     ports:
       - "8080:8080"
     depends_on:
