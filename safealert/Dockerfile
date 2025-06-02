@@ -1,23 +1,28 @@
-FROM maven:3.8.5-openjdk-17-slim AS build
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
+
 COPY pom.xml .
 COPY src ./src
+
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jdk-alpine
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+FROM eclipse-temurin:17-jre-alpine
+
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
+
 WORKDIR /app
 
 COPY --from=build /app/target/safealert-0.0.1-SNAPSHOT.jar ./safealert.jar
 
 RUN chown -R appuser:appgroup /app
 
-EXPOSE 8080
+ENV SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres \
+    SPRING_DATASOURCE_USERNAME=postgres \
+    SPRING_DATASOURCE_PASSWORD=safealertgs \
+    JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
 
-ENV SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
-ENV SPRING_DATASOURCE_USERNAME=postgres
-ENV SPRING_DATASOURCE_PASSWORD=safealertgs
+EXPOSE 8080
 
 USER appuser
 
-CMD ["java", "-jar", "safealert.jar"]
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar safealert.jar"]
