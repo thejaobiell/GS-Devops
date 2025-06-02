@@ -154,7 +154,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/usuarios/1",
+							"raw": "http://localhost:8080/api/usuarios/atualizar/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -163,6 +163,7 @@
 							"path": [
 								"api",
 								"usuarios",
+								"atualizar",
 								"1"
 							]
 						}
@@ -170,7 +171,7 @@
 					"response": []
 				},
 				{
-					"name": "POST usuarios Copy",
+					"name": "DELETE usuarios",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -316,7 +317,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/localidades/update/1",
+							"raw": "http://localhost:8080/api/localidades/update/1 ",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -326,7 +327,7 @@
 								"api",
 								"localidades",
 								"update",
-								"1"
+								"1 "
 							]
 						}
 					},
@@ -662,7 +663,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/postagens/update/1",
+							"raw": "http://localhost:8080/api/postagens/update/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -672,7 +673,7 @@
 								"api",
 								"postagens",
 								"update",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -805,7 +806,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"status\": \"antigo\"\n}\n",
+							"raw": "{\n  \"status\": \"Antiga\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
