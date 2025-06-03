@@ -91,7 +91,7 @@ Você pode testar usando:
 
 ## 🎥 Vídeo da Entrega
 
-O vídeo mostra:
+[Link do VÍDEO](https://youtu.be/O9FonBimsoc?si=S1-9gWYEJO3zZwjK)
 
 ---
 
