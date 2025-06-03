@@ -73,19 +73,10 @@ volumes:
 ---
 
 ## 🔄 Testes do CRUD
-
-A aplicação possui endpoints para as 4 operações:
-
-* **Create** – Inserção de registros
-* **Read** – Listagem e busca
-* **Update** – Atualização de registros
-* **Delete** – Exclusão de registros
-
 Você pode testar usando:
 
-* [ ] Postman (Abra a pasta `POSTMAN` para importar os métodos )
-* [ ] curl via terminal
-* [ ] Swagger (localhost:8080/swagger)
+* [ ] Postman (IMPORTE O ARQUIVO `Global Solution - SafeAlert.postman_collection.json` PARA O POSTMAN )
+* [ ] Swagger (http://localhost:8080/swagger-ui/index.html)
 
 ---
 
