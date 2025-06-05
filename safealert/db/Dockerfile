@@ -6,7 +6,6 @@ WORKDIR /var/lib/postgresql/data
 
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_DB=postgres
-ENV POSTGRES_PASSWORD=safealertgs
 
 RUN chown -R postgresusr:postgresgrp /var/lib/postgresql/data
 
